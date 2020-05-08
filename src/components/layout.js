@@ -52,7 +52,7 @@ const TemplateWrapper = ({ children }) => {
           <div className="container__sidebar">
             <div className="sidebar">
               <h6 className="sidebar__title">
-                <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
+                <Link to="/"><img alt={data.datoCmsSite.globalSeo.siteName} src="https://www.datocms-assets.com/27399/1588910660-logo.png"/></Link>
               </h6>
               <div
                 className="sidebar__intro"
@@ -66,7 +66,7 @@ const TemplateWrapper = ({ children }) => {
                   <Link to="/">Inicio</Link>
                 </li>
                 <li>
-                  <Link to="/about">Contacto</Link>
+                  <Link to="/about">Nosotros</Link>
                 </li>
                 <li>
                   <Link to="/pay">Pagar</Link>
@@ -74,15 +74,16 @@ const TemplateWrapper = ({ children }) => {
               </ul>
               <p className="sidebar__social">
                 {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
-                  <a
+                  profile.profileType.toLowerCase() === 'whatsapp' ? <a
                     key={profile.profileType}
                     href={profile.url}
                     target="blank"
                     className={`social social--${profile.profileType.toLowerCase()}`}
                   >
-                    {" "}
-                  </a>
+                    {""}
+                  </a> : ""
                 ))}
+                {"+569 85682218"}
               </p>
               <div className="sidebar__copyright">
                 {data.datoCmsHome.copyright}
@@ -101,7 +102,7 @@ const TemplateWrapper = ({ children }) => {
                   />
                 </div>
                 <div className="mobile-header__logo">
-                  <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
+                    <Link to="/"><img alt={data.datoCmsSite.globalSeo.siteName} src="https://www.datocms-assets.com/27399/1588910660-logo.png" ></img></Link>
                 </div>
               </div>
             </div>
